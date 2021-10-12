@@ -1,0 +1,42 @@
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>너의 이름은</title>
+
+    {#  BOOTSTRAP LINK  #}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    {#  GOOGLE FONTS LINK  #}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+
+    {#  DEFAULT CSS LINK  #}
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+
+    {#  FONTS  #}
+    <style>
+        @font-face {
+            font-family: 'SCDream3';
+            src: local('SCDream3'),
+            url("{% static 'fonts/SCDream3.otf' %}") format("opentype");
+        }
+        @font-face {
+            font-family: 'SCDream4';
+            src: local('SCDream4'),
+            url("{% static 'fonts/SCDream4.otf' %}") format("opentype");
+        }
+        @font-face {
+            font-family: 'SCDream5';
+            src: local('SCDream5'),
+            url("{% static 'fonts/SCDream5.otf' %}") format("opentype");
+        }
+        @font-face {
+            font-family: 'SCDream6';
+            src: local('SCDream6'),
+            url("{% static 'fonts/SCDream6.otf' %}") format("opentype");
+        }
+    </style>
+
+</head>

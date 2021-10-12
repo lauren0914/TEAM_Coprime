@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="result">
+  <div class="result_img">
+    {% if uploaded_file_url %}
+      <img id='result_img' src="{{ uploaded_file_url }}">
+    {% endif %}
+    <audio id='audio' src='{{tts}}' type='audio/mp3'></audio>
+  </div>
+  <!-- 이미지 이름, 확률값 출력 -->
+  <div class="result_value">
+    <p><h3>{{ result_name }}</h3></t><img id="img" src="{% static 'images/loud-speaker.png' %}"></p>
+    <p><a class="detect_link" href="{% url 'can:detect_img_text' file_name=uploaded_file_name %}">
+        원하시는 결과가 없다면 눌러주세요</a>
+    </p>
+  </div>
+</div>
+
+<!-- 순위 그래프 -->
+<div class="rank_bar">
+    {{ div_rank | safe }}
+    {{ script_rank | safe }}
+</div>
+
+<!-- 데이터 삭제 -->
+<div class="del_data">
+  <a href="{% url 'can:delete' file_name=uploaded_file_name %}" onclick='alert("데이터가 삭제되었습니다.");'>
+      <img class="img_btn" src="{% static 'images/garbage.png' %}">
+  </a>
+</div>
+
+<script>
+  // 웹페이지가 로딩되었을 때 자동으로 오디오 재생
+  window.onload = function() {
+    document.getElementById('audio').play();
+  }
+  // 이미지를 눌렀을 때 이벤트 리스너를 통해 오디오 파일을 재생
+  document.getElementById('img').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('audio').play();
+  });
+
+</script>
+<!-- 그래프를 그리기 위한 js -->
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js" crossorigin="anonymous"></script>
+<!-- 그래프 widgets, tables 필요시 추가 -->
+<!-- <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js"
+      crossorigin="anonymous"></script> -->
+
+{% endblock %}

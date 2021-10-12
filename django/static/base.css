@@ -1,0 +1,300 @@
+.wiyn_header_logo{
+    margin: 2.5rem 0; font-family: 'SCDream5', cursive;
+}
+
+.wiyn_header_button{
+    margin-bottom: 2rem;
+}
+
+.wiyn_footer_button{
+    margin-top: 2rem;
+}
+
+.wiyn_footer_logo{
+    margin: 2rem 0; font-family: 'SCDream3', cursive;
+}
+
+.mw-500{
+    max-width: 500px;
+    padding: 1rem 1.5rem;
+}
+
+.NNS_B{
+    font-family: 'SCDream6', cursive;
+}
+
+.round_button{
+    color: black;
+    text-decoration: none;
+    box-shadow: 0 0 3px black;
+    border-radius: 20rem;
+    padding: .3rem;
+}
+
+.round_button:hover{
+    color: gray;
+}
+
+.article_content{
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+.article_image{
+    width: 60%;
+}
+
+.comment_box{
+    text-align: left;
+    border: solid;
+    border-color: bisque;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+}
+/* <a> */
+a:link, a:visited, a:active, a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+/*  -----------
+    @ base.html
+    -----------   */
+
+/* <html> */
+html {
+    height: 100%;
+}
+/* <body> */
+body {
+    font-family: 'SCDream3';
+    overflow: hidden;
+    height: 100%;
+}
+/* logo can 글자 부분 */
+.can {
+    color: limegreen;
+}
+/* header (logo) */
+#header {
+    padding: 10px;
+    font-size: 1.5vw;
+}
+/* 로고 이미지 */
+.logo_img {
+    width: 2%;
+    float: left;
+}
+/* 각 페이지의 실질적인 부분 */
+#container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+.wrap {
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1vw;
+}
+/* <footer> */
+.footer {
+    padding: 30px 0;
+    opacity: 1;
+    background-color: rgba(144,238, 144, .6);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+.f_content {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1vw;
+    text-align: left;
+}
+.f_content div {
+    padding-right: 10px;
+    word-break: keep-all;
+    line-height: 1.7;
+}
+.footer img {
+    width: 50px;
+}
+
+/*  ------------
+    @ index.html
+    ------------   */
+
+/* 메인 화면 */
+#main_container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+/* 프로그램 이름 */
+#title {
+    padding: 70px 0 10px 0;
+}
+/* 로고 */
+#index_img {
+    width: 150px;
+    padding-bottom: 20px;
+}
+/* 프로그램 소개 */
+#intro {
+    background: rgba(204, 255, 153, 0.6);
+    padding: 10px;
+    width: 400px;
+    text-align: center;
+    margin-bottom: 150px;
+    font-size: 1vw;
+}
+#intro hr {
+    border: 0;
+    height: 1px;
+    background-color: green;
+}
+#intro p {
+    font-weight: 100;
+    padding-top: 5px
+}
+
+/*  -----------------
+    @ img_upload.html
+    -----------------   */
+
+/* 이미지 업로드 */
+.upload {
+    display: block;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* input file > 기본 양식 none으로 설정 후 image 태그로 지정 (label for 이용) */
+.upload input {
+    display: none;
+}
+.img_btn {
+    width: 60px;
+    padding: 5px;
+}
+/* 이미지 미리보기 */
+#image_container {
+    width: 200px;
+    font-size: .8vw;
+    overflow: hidden;
+    text-align: center;
+}
+#image_container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 0;
+}
+/* form 제출 버튼 */
+.submit_btn {
+    border: 0;
+    background-color: white;
+}
+
+/*  -------------
+    @ result.html
+    -------------   */
+
+/* 결과 이미지 */
+#result_img {
+  width: 120px;
+}
+/* 예측결과 내용 */
+.result {
+  display: flex;
+  justify-content: center;
+  font-size: 1vw;
+}
+/* 예측값 */
+.result_value {
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+/* 오디오 이미지 */
+#img {
+    width: 2rem;
+    height: 2rem;
+    padding: 5px;
+}
+/* TOP3 순위 그래프 */
+.rank_bar {
+    display: flex;
+    align-items: center;
+}
+
+/*  ------------------
+    @ text_reader.html
+    ------------------   */
+
+/* 화면 배치 */
+.tr_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1vw;
+}
+/* 불러온 이미지 사이즈 */
+.uploaded_img {
+    width: 200px;
+    height: 200px;
+}
+/* 오디오 이미지 */
+#img2 {
+    width: 30rem;
+    height: 30rem;
+}
+/* 읽어온 문자열 */
+.text_list {
+  padding: 10px;
+}
+
+
+/*  ---------------------------
+    @ result & text_reader.html
+    ---------------------------   */
+
+/* 데이터 삭제, 홈버튼 */
+.del_data img {
+    width: 50px;
+    height: 50px;
+    padding: 15px;
+}

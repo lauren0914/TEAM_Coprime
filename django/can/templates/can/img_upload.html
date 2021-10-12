@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<form action="{% url 'can:pred_img' %}" method="POST" enctype="multipart/form-data"  onsubmit="return file_check()">
+  {% csrf_token %}
+  <div class="upload">
+    <!-- image upload -->
+    <label for="input_img">
+      <img class="img_btn" src="{% static 'images/image-gallery.png' %}">
+    </label>
+    <input type="file" id="input_img" name="img_uploaded" accept="image/*" onchange="setThumbnail(event);">
+    <!-- image preview -->
+    <div class="image_container" style="margin: .5rem;">
+      Image upload ↑<br>
+      Image preview ↓<br>
+      <img id="img_preview" style="margin: .5rem;">
+    </div>
+
+    <script>
+      // 이미지 미리보기
+        function setThumbnail(event) {
+          if (event.target.files && event.target.files[0]){
+            var reader = new FileReader();
+            reader.onload = function(event) {
+              var img = document.getElementById("img_preview");
+              img.setAttribute("src", event.target.result);
+            };
+            reader.readAsDataURL(event.target.files[0]);
+          }
+        }
+
+
+      // 이미지를 선택했는지 확인 > form태그에서 onsubmit을 통해 submit했을 때 함수실행
+      function file_check(){
+      　var chk = document.getElementById('input_img');
+        　if(!chk.value){
+          　alert('파일을 선택하세요!');
+            return false;
+        　}
+      }
+    </script>
+
+    <!-- Predict -->
+    <p>선택한 이미지가 맞다면 예측을 시작하세요!</p>
+    <button class="submit_btn" type="submit"><img class="img_btn" src="{% static 'images/robot.png' %}"></button>
+  </div>
+</form>
+
+{% endblock %}

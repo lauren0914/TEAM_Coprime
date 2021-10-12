@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if uploaded_file_url %}
+<div class="tr_container">
+  <div>
+    <img class="uploaded_img" src="{{ uploaded_file_url }}">
+  </div>
+  <div>
+    <p>Uploaded file @ : <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a>
+    <img id="img" src="{% static 'images/loud-speaker.png' %}"></p>
+  </div>
+{% endif %}
+  <audio id='audio' src='{{tts_2}}' type='audio/mp3'></audio>
+  <div class="text_list">
+    <h3>{{ text_list }}</h3>
+  </div>
+  <div class="del_data">
+    <a href="{% url 'can:delete' file_name=uploaded_file_name %}" onclick='alert("데이터가 삭제되었습니다.");'><img class="img_btn" src="{% static 'images/garbage.png' %}"></a>
+    <a href="{% url 'main:index' %}"><img class="img_btn" src="{% static 'images/house.png' %}"></a>
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    document.getElementById('audio').play();
+  }
+
+  document.getElementById('img2').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('audio').play();
+  });
+</script>
+
+{% endblock %}
